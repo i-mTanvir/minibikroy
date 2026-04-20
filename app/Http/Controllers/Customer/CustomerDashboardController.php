@@ -11,41 +11,63 @@ class CustomerDashboardController extends Controller
     {
         return view('customer.screens.customer_dashboard.dashboard', [
             'title' => 'Customer Dashboard',
-            'customerName' => 'Rahim Uddin',
-            'stats' => [
-                ['label' => 'Active Orders', 'value' => 3],
-                ['label' => 'Completed Orders', 'value' => 24],
-                ['label' => 'Saved Listings', 'value' => 11],
-                ['label' => 'Pending Reviews', 'value' => 2],
+            'categories' => [
+                ['label' => 'Mobiles', 'count' => '64,891 ads', 'icon' => 'mobile'],
+                ['label' => 'Electronics', 'count' => '48,531 ads', 'icon' => 'monitor'],
+                ['label' => 'Vehicles', 'count' => '29,384 ads', 'icon' => 'car'],
+                ['label' => 'Property', 'count' => '15,352 ads', 'icon' => 'home'],
+                ['label' => 'Home & Living', 'count' => '13,789 ads', 'icon' => 'sofa'],
+                ['label' => 'Pets & Animals', 'count' => '11,250 ads', 'icon' => 'paw'],
+                ['label' => "Men's Fashion & Grooming", 'count' => '6,253 ads', 'icon' => 'shirt'],
+                ['label' => 'Hobbies, Sports & Kids', 'count' => '5,200 ads', 'icon' => 'ball'],
+                ['label' => "Women's Fashion & Beauty", 'count' => '4,951 ads', 'icon' => 'dress'],
+                ['label' => 'Business & Industry', 'count' => '3,772 ads', 'icon' => 'factory'],
+                ['label' => 'Education', 'count' => '2,006 ads', 'icon' => 'cap'],
+                ['label' => 'Essentials', 'count' => '1,417 ads', 'icon' => 'bag'],
+                ['label' => 'Jobs', 'count' => '1,388 ads', 'icon' => 'briefcase'],
+                ['label' => 'Services', 'count' => '592 ads', 'icon' => 'tools'],
+                ['label' => 'Agriculture', 'count' => '421 ads', 'icon' => 'wheat'],
+                ['label' => 'Overseas Jobs', 'count' => '65 ads', 'icon' => 'passport'],
             ],
-            'recentOrders' => [
+            'featuredAds' => [
                 [
-                    'order_no' => 'MBK-2026-1044',
-                    'item' => 'Used Yamaha FZ V3',
-                    'date' => '20 Apr 2026',
-                    'amount' => '৳230,000',
-                    'status' => 'Processing',
+                    'title' => 'HP Elitebook 840 G3 (8 GB DDR4 2133 MHz Ram)',
+                    'location' => 'Khulna, Laptops',
+                    'price' => 'Tk 20,500',
+                    'thumbs' => [
+                        'https://images.unsplash.com/photo-1517336714739-489689fd1ca8?auto=format&fit=crop&w=600&q=60',
+                        'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=600&q=60',
+                        'https://images.unsplash.com/photo-1518773553398-650c184e0bb3?auto=format&fit=crop&w=600&q=60',
+                    ],
                 ],
                 [
-                    'order_no' => 'MBK-2026-1037',
-                    'item' => 'Helmet - LS2 FF320',
-                    'date' => '17 Apr 2026',
-                    'amount' => '৳8,500',
-                    'status' => 'Delivered',
-                ],
-                [
-                    'order_no' => 'MBK-2026-1029',
-                    'item' => 'Engine Oil 10W40',
-                    'date' => '12 Apr 2026',
-                    'amount' => '৳1,350',
-                    'status' => 'Delivered',
+                    'title' => 'Dji Neo Fly More Combo',
+                    'location' => 'Khulna, Other Hobby, Sport & Kids items',
+                    'price' => 'Tk 28,999',
+                    'thumbs' => [
+                        'https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=600&q=60',
+                        'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=600&q=60',
+                        'https://images.unsplash.com/photo-1510127034890-ba27508e9f1c?auto=format&fit=crop&w=600&q=60',
+                    ],
                 ],
             ],
-            'quickActions' => [
-                ['label' => 'Order History', 'href' => '#'],
-                ['label' => 'Profile', 'href' => '#'],
-                ['label' => 'Address Book', 'href' => '#'],
-                ['label' => 'Support', 'href' => '#'],
+            'quickLinks' => [
+                [
+                    'title' => '48,531 ads in Electronics',
+                    'items' => ['Desktop Computers', 'Laptops', 'TVs', 'Cameras, Camcorders & Accessories', 'Audio & Sound Systems'],
+                ],
+                [
+                    'title' => '15,352 ads in Property',
+                    'items' => ['Apartments For Sale', 'Land', 'Apartment Rentals', 'Commercial Property Rentals', 'Room Rentals'],
+                ],
+                [
+                    'title' => '1,388 ads in Jobs',
+                    'items' => ['Sales Executive', 'Marketing Executive', 'Delivery Rider', 'Customer Service Jobs', 'Supervisor'],
+                ],
+                [
+                    'title' => '29,384 ads in Vehicles',
+                    'items' => ['Cars', 'Motorbikes', 'Bicycles', 'Trucks', 'Auto Parts & Accessories'],
+                ],
             ],
         ]);
     }
