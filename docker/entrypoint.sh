@@ -16,7 +16,15 @@ if ! grep -q "^APP_KEY=base64:" .env 2>/dev/null; then
 fi
 
 if [ "${RUN_MIGRATIONS:-true}" = "true" ]; then
-  php artisan migrate --force
+  if command -v timeout >/dev/null 2>&1; then
+    if ! timeout 60 php artisan migrate --force --no-interaction; then
+      echo "Migration step skipped after timeout/failure; container will continue startup."
+    fi
+  else
+    if ! php artisan migrate --force --no-interaction; then
+      echo "Migration step failed; container will continue startup."
+    fi
+  fi
 fi
 
 # Ensure frontend assets exist for Laravel @vite in containerized startup.

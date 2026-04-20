@@ -16,7 +16,10 @@ services:
       APP_URL: http://localhost:8000
       DB_CONNECTION: sqlite
       DB_DATABASE: /var/www/html/database/database.sqlite
-      RUN_MIGRATIONS: "true"
+      SESSION_DRIVER: file
+      CACHE_STORE: file
+      QUEUE_CONNECTION: sync
+      RUN_MIGRATIONS: "false"
 
   queue:
     build:
